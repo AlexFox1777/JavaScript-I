@@ -146,20 +146,24 @@ console.log(carsOlderTwoK().length + " cars are older than the year 2000: " +car
 
 // ==== Challenge 6 ==== {"id":50,"car_make":"Lincoln","car_model":"Town Car","car_year":1999}];
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
-function sortByMake() {
-    let BMWAndAudi = [];
-    let cars = Object.entries(inventory);
 
-    for (let i = 0; i < cars.length; i++) {
-        if(cars[i][1] == "BMW"){
-            BMWAndAudi.push(cars[i]);
+function newBMWAudiArr() {
+    let BMWAndAudi = [];
+    for(let i=0; i < inventory.length - 1; i++){
+        if(inventory[i].car_make == "BMW" || inventory[i].car_make == "Audi"){
+            BMWAndAudi.push(inventory[i]);
         }
     }
-    return BMWAndAudi;
+    const str = JSON.stringify(BMWAndAudi);
+    return str;
 }
+console.log(newBMWAudiArr());
 
+// using filter method
 
-console.log(sortByMake());
-
-
-
+function filterBMWAudioArr() {
+    let arr = inventory.filter(cars => cars.car_make == "BMW" || cars.car_make == "Audi");
+    const str = JSON.stringify(arr);
+    return arr;
+}
+console.log(filterBMWAudioArr());
